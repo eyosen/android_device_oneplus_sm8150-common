@@ -435,6 +435,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.0.vendor
 
+# Touch
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.oneplus_msmnile
+
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
