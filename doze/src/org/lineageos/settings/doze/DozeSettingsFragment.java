@@ -43,6 +43,9 @@ import androidx.preference.SwitchPreference;
 public class DozeSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         CompoundButton.OnCheckedChangeListener {
 
+    private static final int CONFIGID_POCKET = com.android.internal.R.bool.config_dozePulseProximity;
+    private static final int CONFIGID_TILT = com.android.internal.R.bool.config_dozePulseTilt;
+
     private TextView mTextView;
     private View mSwitchBar;
 
@@ -78,12 +81,22 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
                 findPreference(Utils.CATEG_PROX_SENSOR);
 
         mPickUpPreference = (SwitchPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
-        mPickUpPreference.setEnabled(dozeEnabled);
-        mPickUpPreference.setOnPreferenceChangeListener(this);
+        if (getActivity().getResources().getBoolean(CONFIGID_TILT) != true) {
+            mPickUpPreference.getParent().removePreference(mPickUpPreference);
+            pickupSensorCategory.getParent().removePreference(pickupSensorCategory);
+        } else {
+            mPickUpPreference.setEnabled(dozeEnabled);
+            mPickUpPreference.setOnPreferenceChangeListener(this);
+        }
 
         mPocketPreference = (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
-        mPocketPreference.setEnabled(dozeEnabled);
-        mPocketPreference.setOnPreferenceChangeListener(this);
+        if (getActivity().getResources().getBoolean(CONFIGID_POCKET) != true) {
+            mPocketPreference.getParent().removePreference(mPocketPreference);
+            proximitySensorCategory.getParent().removePreference(proximitySensorCategory);
+        } else {
+            mPocketPreference.setEnabled(dozeEnabled);
+            mPocketPreference.setOnPreferenceChangeListener(this);
+        }
 
         // Hide AOD if not supported and set all its dependents otherwise
         if (!Utils.alwaysOnDisplayAvailable(getActivity())) {
