@@ -202,6 +202,9 @@ PRODUCT_SOONG_NAMESPACES += \
     $(VENDOR_PATH) \
     device/oneplus/common
 
+#TWRP Support
+-include device/twrp/guacamole/twrp.mk
+
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag

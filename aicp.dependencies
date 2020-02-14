@@ -13,5 +13,10 @@
     "repository": "Hikari-no-Tenshi/android_vendor_oneplus",
     "target_path": "vendor/oneplus",
     "branch":      "lineage-17.1"
+  },
+  {
+    "repository":  "AICP/device_twrp",
+    "target_path": "device/twrp/guacamole",
+    "branch":      "guacamole"
   }
 ]
