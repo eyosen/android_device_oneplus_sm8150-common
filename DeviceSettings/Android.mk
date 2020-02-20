@@ -29,14 +29,17 @@ LOCAL_USE_AAPT2 := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.core_core \
-    androidx.preference_preference
+    androidx.preference_preference \
+    AicpGear-preference \
+    AicpGear-util
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     vendor.oneplus.camera.CameraHIDL-V1.0-java
 
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \
-    $(TOP)/packages/resources/devicesettings/res
+    $(TOP)/packages/resources/devicesettings/res \
+		$(LOCAL_PATH)/../doze/res
 
 package_resource_overlays := $(strip \
     $(wildcard $(foreach dir, $(PRODUCT_PACKAGE_OVERLAYS), \

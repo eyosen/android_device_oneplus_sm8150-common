@@ -10,7 +10,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:aicp="http://schemas.android.com/apk/res-auto">
+
     <PreferenceCategory
         android:key="graphics"
         android:title="@string/display_title">
@@ -101,6 +103,12 @@
             android:defaultValue="false"
             android:summary="@string/single_tap_gesture_summary"
             android:title="@string/single_tap_gesture_title" />
+
+        <com.aicp.gear.preference.SelfRemovingPreference
+            android:key="doze_device_settings"
+            android:title="@string/ambient_display_title">
+            <intent android:action="com.aicp.settings.device.DOZE_SETTINGS" />
+        </com.aicp.gear.preference.SelfRemovingPreference>
     </PreferenceCategory>
 
     <PreferenceCategory
