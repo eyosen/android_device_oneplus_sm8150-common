@@ -18,5 +18,10 @@
     "repository":  "AICP/device_twrp",
     "target_path": "device/twrp/guacamole",
     "branch":      "guacamole"
+  },
+  {
+    "repository":  "AICP/packages_apps_TouchGestures",
+    "target_path": "packages/apps/TouchGestures",
+    "branch":      "q10.0"
   }
 ]

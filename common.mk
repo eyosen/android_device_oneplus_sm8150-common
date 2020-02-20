@@ -437,7 +437,8 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus_msmnile
+    vendor.lineage.touch@1.0-service.oneplus_msmnile \
+    TouchGestures
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
