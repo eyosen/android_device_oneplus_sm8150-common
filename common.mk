@@ -409,8 +409,11 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.2-service.oneplus_msmnile
+# OnePlus7 (guacamoleb) doesnt have custom vibrator
+ifneq ($(filter guacamole, guacamolec, OnePlus7Pro,$(TARGET_DEVICE)),)
+		PRODUCT_PACKAGES += \
+		    android.hardware.vibrator@1.2-service.oneplus_msmnile
+endif
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
