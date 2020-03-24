@@ -436,8 +436,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus_msmnile \
-    TouchGestures
+    vendor.lineage.touch@1.0-service.oneplus_msmnile
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
@@ -473,9 +472,9 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    vendor.lineage.touch@1.0-service.oneplus_msmnile
 
-# AOSiP Device Settings
+# AICP DeviceParts
 PRODUCT_PACKAGES += \
-    DeviceSettings
+    DeviceParts
 
 # tri-state key
 PRODUCT_PACKAGES += \
