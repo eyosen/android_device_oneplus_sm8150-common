@@ -472,9 +472,9 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    vendor.lineage.touch@1.0-service.oneplus_msmnile
 
-# AICP DeviceParts
+# AICP PartsBin
 PRODUCT_PACKAGES += \
-    DeviceParts
+    PartsBin
 
 # tri-state key
 PRODUCT_PACKAGES += \
