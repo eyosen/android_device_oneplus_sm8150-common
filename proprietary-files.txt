@@ -238,7 +238,7 @@ vendor/lib64/vendor.qti.hardware.cvp@1.0.so
 vendor/lib64/vendor.qti.hardware.cvp@1.0-halimpl.so
 
 # DASH
--sbin/dashd;rootfs
+sbin/dashd:bin/dashd
 
 # Display
 -product/lib/libsdm-disp-apis.qti.so
@@ -562,7 +562,7 @@ vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
 vendor/lib64/libtinyxml2_1.so
 
-# Graphics firmware 
+# Graphics firmware
 vendor/firmware/a225_pfp.fw
 vendor/firmware/a225_pm4.fw
 vendor/firmware/a225p5_pm4.fw
