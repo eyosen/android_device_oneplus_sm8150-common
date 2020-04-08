@@ -48,7 +48,6 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class DozeSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         CompoundButton.OnCheckedChangeListener {
 
-    private static final int CONFIGID_POCKET = com.android.internal.R.bool.config_dozePulseProximity;
     private static final int CONFIGID_TILT = com.android.internal.R.bool.config_dozePulseTilt;
 
     private static final String PULSE_AMBIENT_LIGHT_COLOR_MODE = "pulse_ambient_light_color_mode";
@@ -62,7 +61,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
 
     private SwitchPreference mAlwaysOnDisplayPreference;
     private SwitchPreference mPickUpPreference;
-    private SwitchPreference mPocketPreference;
 
     private Handler mHandler = new Handler();
 
@@ -87,8 +85,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
 
         PreferenceCategory pickupSensorCategory = (PreferenceCategory) getPreferenceScreen().
                 findPreference(Utils.CATEG_PICKUP_SENSOR);
-        PreferenceCategory proximitySensorCategory = (PreferenceCategory) getPreferenceScreen().
-                findPreference(Utils.CATEG_PROX_SENSOR);
 
         mPickUpPreference = (SwitchPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
         if (getActivity().getResources().getBoolean(CONFIGID_TILT) != true) {
@@ -99,21 +95,11 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
             mPickUpPreference.setOnPreferenceChangeListener(this);
         }
 
-        mPocketPreference = (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
-        if (getActivity().getResources().getBoolean(CONFIGID_POCKET) != true) {
-            mPocketPreference.getParent().removePreference(mPocketPreference);
-            proximitySensorCategory.getParent().removePreference(proximitySensorCategory);
-        } else {
-            mPocketPreference.setEnabled(dozeEnabled);
-            mPocketPreference.setOnPreferenceChangeListener(this);
-        }
-
         // Hide AOD if not supported and set all its dependents otherwise
         if (!Utils.alwaysOnDisplayAvailable(getActivity())) {
             getPreferenceScreen().removePreference(mAlwaysOnDisplayPreference);
         } else {
             pickupSensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
-            proximitySensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
         }
 
         mEdgeLightColorModePref = (ListPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR_MODE);
@@ -184,7 +170,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mAlwaysOnDisplayPreference.setEnabled(isChecked);
 
         mPickUpPreference.setEnabled(isChecked);
-        mPocketPreference.setEnabled(isChecked);
     }
 
     @Override
