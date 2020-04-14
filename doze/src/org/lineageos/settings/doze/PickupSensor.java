@@ -46,7 +46,18 @@ public class PickupSensor implements SensorEventListener {
     public PickupSensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = Utils.getSensor(mSensorManager, "oneplus.sensor.pickup");
+        final String pickup_sensor = context.getResources().getString(R.string.pickup_sensor);
+        if (pickup_sensor != null && !pickup_sensor.isEmpty()) {
+            for (Sensor sensor : mSensorManager.getSensorList(Sensor.TYPE_ALL)) {
+                if (pickup_sensor.equals(sensor.getStringType())) {
+                    mSensor = sensor;
+                    break;
+                }
+            }
+        } else {
+            mSensor = Utils.getSensor(mSensorManager, "oneplus.sensor.pickup");
+        }
+        if (DEBUG) Log.d(TAG, "Pickup sensor: " + mSensor.getStringType());
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
