@@ -320,9 +320,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.oneplus_msmnile
 
-## LiveDisplay
-#    vendor.lineage.livedisplay@2.0-service-sdm
-#		PRODUCT_PACKAGES += \
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service.oneplus_msmnile
 
 # Media
 PRODUCT_COPY_FILES += \
