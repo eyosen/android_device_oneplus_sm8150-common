@@ -14,4 +14,8 @@
         <permission name="android.permission.DUMP"/>
         <permission name="android.permission.PACKAGE_USAGE_STATS"/>
     </privapp-permissions>
+
+    <privapp-permissions package="com.dolby.daxservice">
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+    </privapp-permissions>
 </permissions>
