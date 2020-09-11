@@ -74,3 +74,4 @@
 /sys/kernel/fast_charge/force_fast_charge                          u:object_r:sysfs_fastcharge:s0
 /sys/kernel/gpu(/.*)?                                              u:object_r:sysfs_info:s0
 /sys/class/power_supply/battery/temp                               u:object_r:sysfs_info:s0
+/sys/android_touch(/.*)?                                           u:object_r:sysfs_wakegestures:s0
